@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+}
+@theme {
+  --breakpoint-xs: 480px;
+  --breakpoint-kxl: 1300px;
+}
