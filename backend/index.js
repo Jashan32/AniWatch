@@ -1,5 +1,4 @@
 const express = require("express");
-const { WebSocketServer} = require("ws");
 const { homeRouter } = require("./routes/user/home")
 const { ahomeRouter } = require("./routes/user/ahome")
 const { adminRouter } = require("./routes/admin/admin")
@@ -16,47 +15,14 @@ const mongoose = require("mongoose");
 const { userModel } = require("./db")
 const jwt = require('jsonwebtoken');
 const jwtSecret = JWT_SECRET
-
-
-
 const cors = require('cors');
 const { registerRouter } = require("./routes/user/login");
+const { default: wssSetup } = require("./websocket");
 app.use(cors());
 
-const sockets =[]
 
-async function sender(email,message,token){
+wssSetup()
 
-    const user = await userModel.findOne({
-        email: email,
-
-    })
-    const name = user.name
-    const profileImg = user.profileImg
-    const data = {name:name,message:message,profileImg:profileImg,token:token}
-    console.log(data)
-    sockets.map((x)=>x.send(JSON.stringify(data)))
-
-}
-
-const wss = new WebSocketServer({port:8080})
-wss.on("connection", function (socket){
-    sockets.push(socket)
-
-    console.log("user Connected")
-    
-    socket.on("message", function(e){
-        const res = JSON.parse(e.toString())
-        const message = res.message
-        const email = jwt.verify(res.token,jwtSecret)
-        sender(email.email,message,res.token)
-        
-    })
-    socket.on("close", function () {
-        console.log("User Disconnected");
-        sockets.splice(sockets.indexOf(socket), 1); })
-
-})
 
 app.use("/user/login", loginRouter)
 app.use("/user/login", registerRouter)
