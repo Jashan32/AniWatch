@@ -8,6 +8,7 @@ const postSchema = new Schema({
     title:String,
     post:String,
     profileImg:String,
+    category:String,
     createdAt: { type: Date, default: Date.now }
 })
 

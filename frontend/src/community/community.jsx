@@ -8,7 +8,17 @@ import SendPost from "./sendPost";
 
 function Community() {
   const [create, setCreate] = useState(false);
-  const [post,setPost] = useState(false);
+  const [post, setPost] = useState(false);
+  const [postData, setPostData] = useState([])
+
+  useEffect(() => {
+    async function func1() {
+      const resData = await fetch(`${import.meta.env.VITE_SERVER_URL}/community/getpost`)
+      const data = await resData.json()
+      setPostData([...data.data])
+    }
+    func1()
+  },[])
 
   return <div className="relative select-none">
     <Navbar />
@@ -87,9 +97,11 @@ function Community() {
                     <div className="font-extrabold"><i class={`fas fa-${create ? "multiply" : "plus"}`}></i></div>
                     <span className="sm:flex hidden">{create ? "Cancle" : "Create"}</span>
                   </div>
-                  <div onClick={() => {setPost(true);setCreate(false);setTimeout(() => {
-                    setPost(false)
-                  }, 100);}} className={`bg-[#ffdd95] cursor-pointer gap-[5px] text-[16px] text-black rounded-full h-[40px] px-[30px] flex justify-center items-center ${create?"":"hidden"} `}>
+                  <div onClick={() => {
+                    setPost(true); setCreate(false); setTimeout(() => {
+                      setPost(false)
+                    }, 100);
+                  }} className={`bg-[#ffdd95] cursor-pointer gap-[5px] text-[16px] text-black rounded-full h-[40px] px-[30px] flex justify-center items-center ${create ? "" : "hidden"} `}>
                     <span className="sm:flex hidden">Post</span>
                   </div>
                   <div className="cursor-pointer hover:text-[#ffdd95]  gap-[5px] text-[16px] text-white rounded-full h-[40px] w-[108px] flex justify-center items-center">
@@ -111,11 +123,12 @@ function Community() {
               </div>
 
 
-              <SendPost create={create} post ={post}/>
+              <SendPost create={create} post={post} />
 
+              {postData.map((x) => (
+                <Post postData={x} />
+              ))}
 
-
-              <Post />
             </div>
           </div>
         </div>
