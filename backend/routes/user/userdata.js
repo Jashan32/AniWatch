@@ -21,15 +21,12 @@ userRouter.get("/data", async (req, res)=>{
 
         }
         else{
-            console.log("data not found")
             res.json({
                 message:"data not found"
             })
         }
 
     } catch (err) {
-
-        console.log(err)
         res.json({
             message:"error at verifing jwt"
         })

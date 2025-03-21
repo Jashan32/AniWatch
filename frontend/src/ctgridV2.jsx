@@ -58,7 +58,6 @@ function Ctgridv2(props) {
             })
             const resData2 = await resp.json()
             setResData(resData2.categorydata)
-            console.log(props.type2)
         }
         fetchData()
     }, [])

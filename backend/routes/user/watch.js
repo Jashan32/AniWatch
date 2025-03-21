@@ -13,14 +13,12 @@ watchRouter.get("/watch/:id", async function(req, res){
 
 watchRouter.get("/search/:id", async function(req, res){
     const id = req.params.id;
-    console.log(id)
     const resp = await animeModel.find(
         { title: { $regex: id, $options: "i" } }
       )
       res.json({
         data: resp
       })
-      console.log(resp)
 })
 
 module.exports = {

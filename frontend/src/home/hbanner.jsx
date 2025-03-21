@@ -1,4 +1,4 @@
-import { Slider } from './slider.jsx'
+import { Slider } from '../slider.jsx'
 
 function Hbanner() {
 

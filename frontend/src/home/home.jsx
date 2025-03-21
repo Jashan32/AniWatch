@@ -1,14 +1,14 @@
-import './index.css'
-import './app.css'
-import Navbar from './navbar.jsx'
+import '../index.css'
+import '../app.css'
+import Navbar from '../navbar.jsx'
 import Hbanner from './hbanner.jsx'
 import CList from './cList.jsx'
-import CtGrid from './ctGrid.jsx'
-import Sharing from './sharing.jsx'
-import Adsb from './adsB.jsx'
-import Ctgridv2 from './ctgridV2.jsx'
-import RightBar from './rightBar.jsx'
-import Footer from './footer.jsx'
+import CtGrid from '../ctGrid.jsx'
+import Sharing from '../sharing.jsx'
+import Adsb from '../adsB.jsx'
+import Ctgridv2 from '../ctgridV2.jsx'
+import RightBar from '../rightBar.jsx'
+import Footer from '../footer.jsx'
 
 function Home() {
     return <div className='bg-[#242428] font-primary '>

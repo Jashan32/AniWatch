@@ -15,7 +15,6 @@ function Slider() {
         const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/user/home/slider`);
         const data = await res.json();
         const imageUrls = data.sliderArray.map((x) => x.bannerURL);
-        console.log(imageUrls)
 
         // Preload images
         const loadImages = imageUrls.map((src) => {
@@ -35,7 +34,7 @@ function Slider() {
         setSlides(imageUrls);
         setTitles(data.sliderArray.map((x) => x.title));
         setid(data.sliderArray.map((x) => x._id));
-        setimg(data.sliderArray.map((x) => x.imageUrl));
+        // setimg(data.sliderArray.map((x) => x.imageUrl));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -48,7 +47,6 @@ function Slider() {
     const interval = setInterval(() => {
       setAnimate(true);
       let indexV = index
-      // console.log(titles.length)
       if (indexV < titles.length - 1) {
         indexV += 1
       }

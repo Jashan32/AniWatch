@@ -14,7 +14,6 @@ async function sender(email,message,token){
     const name = user.name
     const profileImg = user.profileImg
     const data = {name:name,message:message,profileImg:profileImg,token:token}
-    console.log(data)
     sockets.map((x)=>x.send(JSON.stringify(data)))
 
 }
@@ -25,7 +24,6 @@ export default function wssSetup(){
     wss.on("connection", function (socket){
         sockets.push(socket)
     
-        console.log("user Connected")
         
         socket.on("message", function(e){
             const res = JSON.parse(e.toString())
@@ -35,7 +33,6 @@ export default function wssSetup(){
             
         })
         socket.on("close", function () {
-            console.log("User Disconnected");
             sockets.splice(sockets.indexOf(socket), 1); })
     
     })

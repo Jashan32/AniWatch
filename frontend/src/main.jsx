@@ -2,7 +2,7 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import './app.css'
-import Home from './home.jsx'
+import Home from './home/home.jsx'
 import Admin from './admin.jsx'
 import Ahome from './ahome.jsx'
 import Watch from './watch.jsx'

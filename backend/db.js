@@ -2,6 +2,15 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const { array, string } = require("zod");
 
+const postSchema = new Schema({
+    username:String,
+    email:String,
+    title:String,
+    post:String,
+    profileImg:String,
+    createdAt: { type: Date, default: Date.now }
+})
+
 const pImgSchema = new Schema({
     imgs:Array
 })
@@ -48,6 +57,7 @@ const episodeModel = mongoose.model("episodes", episodeSchema);
 const categoryModel = mongoose.model("categories", categorySchema);
 const userModel = mongoose.model("users", userSchema)
 const pImgModel = mongoose.model("profileimgs", pImgSchema)
+const postModel = mongoose.model("post", postSchema)
 
 module.exports = {
 
@@ -55,6 +65,6 @@ module.exports = {
     episodeModel,
     categoryModel,
     userModel,
-    pImgModel
-
+    pImgModel,
+    postModel
 }

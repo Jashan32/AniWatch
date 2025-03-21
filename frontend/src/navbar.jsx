@@ -61,7 +61,6 @@ function Navbar() {
         const resdata = await res.json();
         const resdata2 = resdata.data
         setSearchData(resdata2)
-        console.log(resdata2);
       } catch (error) {
         console.error("Fetch Error:", error);
       }
@@ -95,8 +94,6 @@ function Navbar() {
         }
       })
       const resData2 = await resp.json()
-      // setspotlight(resData2.categorydata)
-      // console.log(resData2)
       setrandom(resData2.categorydata[Math.floor(8 * Math.random())]._id);
     }
     random_pick()
@@ -358,20 +355,16 @@ function Navbar() {
       }
       else if (data.message == "Password must be at least 5 characters") {
         setLoginError(data.message)
-        console.log(data.message)
         alert(data.message)
       }
       else if (data.message == "Name must be 35 characters or less") {
         setLoginError(data.message)
-        console.log(data.message)
         alert(data.message)
       }
       else if (data.message == "email_elredy_exist") {
-        console.log(data.message)
         alert(data.message)
       }
       else if (data.message !== "registered_sucessfully") {
-        console.log(data.message)
         alert(data.message)
       }
     }
@@ -581,7 +574,6 @@ function Navbar() {
               onClick={() => {
                 setLanguage(!language);
                 localStorage.setItem("language", !language)
-                console.log(localStorage.getItem("language"))
               }}
               onMouseEnter={(e) => handleMouseEnterCard("Select language of anime name to display", e)}
               onMouseLeave={handleMouseLeaveCard} >

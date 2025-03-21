@@ -1,11 +1,14 @@
 import { useEffect, useRef, useState } from "react"
 import Navbar from "../navbar"
-import Post from "../post"
+import Post from "./post"
 import { useAuth } from "../customHooks/loginOpen";
 import Footer from "../footer";
 import Chatbox from "./chatbox";
+import SendPost from "./sendPost";
 
 function Community() {
+  const [create, setCreate] = useState(false);
+  const [post,setPost] = useState(false);
 
   return <div className="relative select-none">
     <Navbar />
@@ -45,7 +48,7 @@ function Community() {
       <div className="font-bold text-[32px] md:text-[64px] text-white flex justify-center">AniWatch Connect</div>
       <div className="z-9999 flex justify-center">
         <div className="w-[1240px] mx-[20px] md:mx-[90px] flex flex-col gap-[50px]">
-          <Chatbox/>
+          <Chatbox />
           <div className="flex gap-[40px]">
             <div className=" [&>*]:cursor-pointer [&>*]:hover:bg-white/20 hidden lg:flex flex-col gap-[10px] [&>*]:bg-white/10 [&>*]:rounded-full [&>*]:h-[43px] [&>*]:w-[280px] [&>*]:flex  [&>*]:items-center">
               <div className="flex justify-between px-[5%]">
@@ -80,9 +83,14 @@ function Community() {
             <div className="w-[100%] flex flex-col gap-[20px]">
               <div className="flex justify-between pr-[15px]">
                 <div className="flex gap-[10px] ">
-                  <div onClick={() => console.log(document.cookie.split("\\")[1])} className="cursor-pointer gap-[5px] text-[16px] text-black bg-white rounded-full h-[40px] px-[20px] flex justify-center items-center">
-                    <div className="font-extrabold"><i class="fas fa-plus"></i></div>
-                    <span className="sm:flex hidden">Create</span>
+                  <div onClick={() => setCreate(!create)} className="cursor-pointer gap-[5px] text-[16px] text-black bg-white rounded-full h-[40px] px-[20px] flex justify-center items-center">
+                    <div className="font-extrabold"><i class={`fas fa-${create ? "multiply" : "plus"}`}></i></div>
+                    <span className="sm:flex hidden">{create ? "Cancle" : "Create"}</span>
+                  </div>
+                  <div onClick={() => {setPost(true);setCreate(false);setTimeout(() => {
+                    setPost(false)
+                  }, 100);}} className={`bg-[#ffdd95] cursor-pointer gap-[5px] text-[16px] text-black rounded-full h-[40px] px-[30px] flex justify-center items-center ${create?"":"hidden"} `}>
+                    <span className="sm:flex hidden">Post</span>
                   </div>
                   <div className="cursor-pointer hover:text-[#ffdd95]  gap-[5px] text-[16px] text-white rounded-full h-[40px] w-[108px] flex justify-center items-center">
                     <div className="font-extrabold"><i class="fas fa-list"></i></div>
@@ -101,13 +109,19 @@ function Community() {
                   </div>
                 </div>
               </div>
+
+
+              <SendPost create={create} post ={post}/>
+
+
+
               <Post />
             </div>
           </div>
         </div>
       </div>
     </div>
-    <Footer/>
+    <Footer />
   </div>
 }
 

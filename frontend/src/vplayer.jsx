@@ -19,8 +19,6 @@ const HlsVideoPlayer = ({ vUrl_english, subtitleSrc,vUrl_japanese, isSub }) => {
 
     // Ensure subtitles are added
     if (subtitleSrc) {
-      console.log("Loading subtitle:", subtitleSrc);
-
       // Remove existing subtitle track (to prevent duplicates)
       const oldTrack = video.querySelector("track");
       if (oldTrack) {

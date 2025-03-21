@@ -11,8 +11,6 @@ const RECAPTCHA_SECRET = process.env.RECAPTCHA_SECRET;
 const reCaptchaSecret = RECAPTCHA_SECRET
 const JWT_SECRET = process.env.JWT_SECRET;
 
-const jwtSecret = JWT_SECRET
-
 loginRouter.post("/login", async function (req, res) {
 
     const token = req.body.token
@@ -44,7 +42,7 @@ loginRouter.post("/login", async function (req, res) {
 
                     const jwtToken = jwt.sign({
                         email
-                    }, jwtSecret)
+                    }, JWT_SECRET)
                     res.json({
                         message: "login_sucessfull",
                         jwtToken: "\\" + jwtToken + "\\"
@@ -135,7 +133,7 @@ registerRouter.post("/register", async function (req, res) {
                 })
                 const jwtToken = jwt.sign({
                     email
-                }, jwtSecret)
+                }, JWT_SECRET)
 
 
                 res.json({

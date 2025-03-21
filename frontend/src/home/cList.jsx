@@ -1,7 +1,7 @@
-import Card from './card.jsx'
+import Card from '../card.jsx'
 import './cList.css';
 import { useState, useEffect } from "react"
-import FloatInfo from './floatInfo.jsx';
+import FloatInfo from '../floatInfo.jsx';
 
 function CList() {
     const [position, setPosition] = useState({ x: 0, y: 0 });

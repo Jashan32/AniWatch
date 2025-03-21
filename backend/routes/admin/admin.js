@@ -41,15 +41,11 @@ adminRouter.post("/new-episode", async function (req, res) {
 
 
     if (!anime) {
-        console.log("Anime not found!");
         res.json({
             message: "anime list not Found"
         })
     }
     else if (!animeEp) {
-
-        console.log(vUrl_japanese)
-
         const newEpisode = await episodeModel.create({
             animeId: anime._id,
             title: [ep_title],
@@ -132,7 +128,6 @@ adminRouter.post("/set-tag", async function (req, res) {
             aName = await animeModel.findOne({ title: a });
             if (!aName) {
                 errorName = a
-                console.log(aName + " is not present in main list")
                 status = false
             }
             else {
@@ -153,7 +148,6 @@ adminRouter.post("/set-tag", async function (req, res) {
         const catData = await categoryModel.findOne({ category: tag })
         const maxLength = catData.max;
         if (maxLength < idArray.length) {
-            console.log("max length of array reached")
             res.json({
                 message: "max length of array reacjed"
             })
@@ -178,11 +172,9 @@ adminRouter.get("/get-tag", async function (req, res) {
     const givenCategory = await categoryModel.findOne({ category: value });
 
     if (!givenCategory) {
-        console.log("no such category found")
         return
     }
     if (givenCategory.nData.length == 0) {
-        console.log("empty array")
         return
     }
     const cArray = givenCategory.nData;
@@ -200,7 +192,6 @@ adminRouter.get("/get-tag", async function (req, res) {
     )
 
     if (!givenCategory) {
-        console.log("Anime not found!");
         res.json({
             message: "not Found"
         })

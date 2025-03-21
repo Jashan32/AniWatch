@@ -117,7 +117,9 @@ homeRouter.get("/category", async (req, res) => {
         })
     }
     catch(e){
-        console.log(e)
+        res.json({
+            message:e
+        })
     }
 
 })

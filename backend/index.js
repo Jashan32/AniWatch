@@ -5,6 +5,7 @@ const { adminRouter } = require("./routes/admin/admin")
 const { watchRouter } = require("./routes/user/watch")
 const { loginRouter } = require("./routes/user/login")
 const { userRouter } = require("./routes/user/userdata")
+const {postRouter} = require("./routes/user/community/community")
 require('dotenv').config(); 
 const PORT = process.env.PORT || 3000;
 const MONGO_URI = process.env.MONGO_URI;
@@ -23,7 +24,7 @@ app.use(cors());
 
 wssSetup()
 
-
+app.use("/community", postRouter)
 app.use("/user/login", loginRouter)
 app.use("/user/login", registerRouter)
 app.use("/admin", adminRouter)
