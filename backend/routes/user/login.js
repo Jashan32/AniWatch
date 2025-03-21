@@ -1,11 +1,12 @@
-const { Router } = require("express");
-const { userModel, pImgModel } = require("../../db")
+import { Router } from "express";
+import { userModel, pImgModel } from "../../db.js";
 const loginRouter = Router();
 const registerRouter = Router();
-const { z } = require("zod")
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-require('dotenv').config(); 
+import { z } from "zod";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+dotenv.config();
 
 const RECAPTCHA_SECRET = process.env.RECAPTCHA_SECRET;
 const reCaptchaSecret = RECAPTCHA_SECRET
@@ -158,7 +159,7 @@ registerRouter.post("/register", async function (req, res) {
     }
 })
 
-module.exports = {
-    loginRouter: loginRouter,
-    registerRouter: registerRouter
+export {
+    loginRouter,
+    registerRouter
 }

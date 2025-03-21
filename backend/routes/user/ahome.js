@@ -1,5 +1,5 @@
-const {Router} = require("express");
-const {animeModel} = require("../../db");
+import {Router} from "express";
+import {animeModel} from "../../db.js";
 
 const ahomeRouter = Router();
 ahomeRouter.get("/ahome/:id", async function(req, res){
@@ -10,6 +10,6 @@ ahomeRouter.get("/ahome/:id", async function(req, res){
     })
 })
 
-module.exports = {
-    ahomeRouter: ahomeRouter
+export {
+     ahomeRouter
 }

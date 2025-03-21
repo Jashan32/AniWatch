@@ -1,26 +1,23 @@
-const express = require("express");
-const { homeRouter } = require("./routes/user/home")
-const { ahomeRouter } = require("./routes/user/ahome")
-const { adminRouter } = require("./routes/admin/admin")
-const { watchRouter } = require("./routes/user/watch")
-const { loginRouter } = require("./routes/user/login")
-const { userRouter } = require("./routes/user/userdata")
-const {postRouter} = require("./routes/user/community/community")
-require('dotenv').config(); 
+import express from "express";
+import {homeRouter} from "./routes/user/home.js"
+import {ahomeRouter} from "./routes/user/ahome.js"
+import {adminRouter} from "./routes/admin/admin.js"
+import {watchRouter} from "./routes/user/watch.js"
+import {loginRouter} from "./routes/user/login.js"
+import {userRouter} from "./routes/user/userdata.js"
+import {postRouter} from "./routes/user/community/community.js"
+import dotenv from "dotenv";
+dotenv.config();
+
 const PORT = process.env.PORT || 3000;
 const MONGO_URI = process.env.MONGO_URI;
-const JWT_SECRET = process.env.JWT_SECRET;
 const app = express();
 app.use(express.json());
-const mongoose = require("mongoose");
-const { userModel } = require("./db")
-const jwt = require('jsonwebtoken');
-const jwtSecret = JWT_SECRET
-const cors = require('cors');
-const { registerRouter } = require("./routes/user/login");
-const { default: wssSetup } = require("./websocket");
+import mongoose from "mongoose";
+import cors from 'cors';
+import {registerRouter} from "./routes/user/login.js";
+import wssSetup from "./websocket.js";
 app.use(cors());
-
 
 wssSetup()
 

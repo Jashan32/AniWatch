@@ -1,6 +1,5 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
-const { array, string } = require("zod");
 
 const postSchema = new Schema({
     username:String,
@@ -60,7 +59,7 @@ const userModel = mongoose.model("users", userSchema)
 const pImgModel = mongoose.model("profileimgs", pImgSchema)
 const postModel = mongoose.model("post", postSchema)
 
-module.exports = {
+export {
 
     animeModel,
     episodeModel,

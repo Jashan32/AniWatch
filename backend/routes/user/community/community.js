@@ -1,7 +1,7 @@
-const { Router } = require("express");
-const { postModel, userModel } = require("../../../db")
+import { Router } from "express";
+import { postModel, userModel } from "../../../db.js";
 const postRouter = Router();
-const jwt = require('jsonwebtoken');
+import jwt from "jsonwebtoken";
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
@@ -47,6 +47,6 @@ postRouter.get("/getpost", async (req, res) => {
     }
 })
 
-module.exports = {
-    postRouter: postRouter
+export {
+   postRouter
 }

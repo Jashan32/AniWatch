@@ -1,5 +1,5 @@
-const {Router} = require("express");
-const {episodeModel , animeModel} = require("../../db");
+import {Router} from "express";
+import {episodeModel , animeModel} from "../../db.js";
 const watchRouter = Router();
 
 watchRouter.get("/watch/:id", async function(req, res){
@@ -21,6 +21,6 @@ watchRouter.get("/search/:id", async function(req, res){
       })
 })
 
-module.exports = {
-    watchRouter: watchRouter
+export  {
+     watchRouter
 }

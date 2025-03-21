@@ -1,6 +1,6 @@
 
-const { Router } = require("express");
-const { categoryModel, animeModel } = require("../../db");
+import { Router } from "express";
+import { categoryModel, animeModel } from "../../db.js";
 const homeRouter = Router();
 
 homeRouter.get("/slider", async function (req, res) {
@@ -125,6 +125,4 @@ homeRouter.get("/category", async (req, res) => {
 })
 
 
-module.exports = {
-    homeRouter: homeRouter
-}
+export  {homeRouter}

@@ -1,6 +1,6 @@
 
-const { Router } = require("express");
-const { animeModel, episodeModel, categoryModel } = require("../../db");
+import { Router } from "express";
+import { animeModel, episodeModel, categoryModel } from "../../db.js";
 const adminRouter = Router();
 
 adminRouter.post("/new-anime", async function (req, res) {
@@ -203,6 +203,6 @@ adminRouter.get("/get-tag", async function (req, res) {
         })
     }
 })
-module.exports = {
-    adminRouter: adminRouter
+export {
+    adminRouter
 }
