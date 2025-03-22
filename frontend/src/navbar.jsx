@@ -1,4 +1,4 @@
-import './app.css'
+import './App.css'
 import './index.css'
 import logoimg from "./assets/logo.png"
 import warning from "./assets/warning.png"
@@ -8,7 +8,6 @@ import { useAuth } from "./customHooks/loginOpen";
 import RecaptchaForm from './recaptcha'
 import Socials from './socials'
 import useDebounce from './customHooks/useDebounce'
-import './app.css';  // Ensure the global CSS is imported
 
 function Navbar() {
 

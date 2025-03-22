@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { useParams } from "react-router-dom";
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import './app.css'
+import './App.css'
 import Navbar from './navbar.jsx'
 import Hbanner from './home/hbanner.jsx'
 import CList from './home/cList.jsx'

@@ -1,5 +1,5 @@
 import '../index.css'
-import '../app.css'
+import '../App.css'
 import Navbar from '../navbar.jsx'
 import Hbanner from './hbanner.jsx'
 import CList from './cList.jsx'

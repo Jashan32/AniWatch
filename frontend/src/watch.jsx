@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import './index.css'
-import './app.css'
+import './App.css'
 import './watch.css';
 import Navbar from './navbar.jsx'
 import { useState, useEffect } from "react"
