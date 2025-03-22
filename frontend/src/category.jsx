@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom"
 import Navbar from "./navbar"
-import {useState } from "react";
 import Sharing from "./sharing";
 import Ctgridv2 from "./ctgridV2";
 import RightBar from "./rightBar";

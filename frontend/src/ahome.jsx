@@ -1,15 +1,8 @@
-import { StrictMode } from 'react'
 import { useParams } from "react-router-dom";
-import { createRoot } from 'react-dom/client'
 import './index.css'
 import './App.css'
 import Navbar from './navbar.jsx'
-import Hbanner from './home/hbanner.jsx'
-import CList from './home/cList.jsx'
-import CtGrid from './ctGrid.jsx'
 import Sharing from './sharing.jsx'
-import Adsb from './adsB.jsx'
-import Nmenu from './nmenu.jsx'
 import { useState, useEffect } from "react"
 import Ctgridv2 from './ctgridV2.jsx'
 import RightBar from './rightBar.jsx';

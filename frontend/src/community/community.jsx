@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import Navbar from "../navbar"
 import Post from "./post"
-import { useAuth } from "../customHooks/loginOpen";
 import Footer from "../footer";
 import Chatbox from "./chatbox";
 import SendPost from "./sendPost";

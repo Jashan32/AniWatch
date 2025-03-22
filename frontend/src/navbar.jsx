@@ -2,7 +2,6 @@ import './App.css'
 import './index.css'
 import logoimg from "./assets/logo.png"
 import warning from "./assets/warning.png"
-import livesvg from "./assets/live.svg"
 import { useState, useEffect, useRef } from "react"
 import { useAuth } from "./customHooks/loginOpen";
 import RecaptchaForm from './recaptcha'

@@ -1,4 +1,3 @@
-
 import { Router } from "express";
 import { categoryModel, animeModel } from "../../db.js";
 const homeRouter = Router();

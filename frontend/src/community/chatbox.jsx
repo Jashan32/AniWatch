@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../customHooks/loginOpen";
 
-
-
 function Chatbox() {
     const inbox = useRef();
     const [chatOpened, setChatOpened] = useState(false)
@@ -10,10 +8,6 @@ function Chatbox() {
     const typed = useRef();
     const y = useRef();
     const [chats, setchats] = useState([]);
-
-
-    let chats2 = []
-
 
     function sendmessage() {
         if (!document.cookie.split("\\")[1]) {

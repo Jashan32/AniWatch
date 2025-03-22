@@ -1,4 +1,3 @@
-
 import sharei from "./assets/sharei.gif"
 
 function Sharing() {

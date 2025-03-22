@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-import { data } from "react-router-dom";
 
 function Slider() {
   const [slides, setSlides] = useState([]);
