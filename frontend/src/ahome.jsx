@@ -57,7 +57,7 @@ function Ahome() {
                                 <div className=' hidden xl:flex '>
                                     Home • TV • {name}
                                 </div>
-                                <div className=' text-[40px] font-medium'>
+                                <div className=' text-[40px] font-medium text-center'>
                                     {name}
                                 </div>
                                 <div className='flex gap-[2px]'>

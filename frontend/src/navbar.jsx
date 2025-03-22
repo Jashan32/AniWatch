@@ -438,7 +438,7 @@ function Navbar() {
         <div onClick={(e) => {
           e.stopPropagation();
           setLoginErrVisi(false);
-        }} className={` w-[500px]   pl-[60px] pr-[60px] bg-[#333]/70 flex flex-col gap-[20px] rounded-4xl mx-auto  ease-in-out delay-10 duration-100 backdrop-blur-xl overflow-hidden transition-translate ${register ? "translate-y-[18vh] h-[630px]" : isLogInOpen2 ? "  translate-y-[20vh] h-[510px]" : "  translate-y-10 h-[600px]"}`}>
+        }} className={` w-[500px] pl-[60px] pr-[60px] bg-[#333]/70 flex flex-col gap-[20px] rounded-4xl mx-auto  ease-in-out delay-10 duration-100 backdrop-blur-xl overflow-hidden transition-translate pb-10 max-h-[90vh] overflow-scroll ${register ? " my-auto h-auto" : isLogInOpen2 ? "my-auto h-auto" : "  translate-y-10 h-[600px]"}`}>
           <div className=' font-semibold text-white text-center text-[20px] pt-[25px]'>
             {register ? "Create an Account" : "Welcome back!"}
           </div>
