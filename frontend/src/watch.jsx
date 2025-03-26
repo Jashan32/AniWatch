@@ -105,7 +105,7 @@ function Watch() {
                                 Home • {type} • {name}
                             </div>
                             <div className='w-[100%] flex lg:flex-row  flex-col-reverse bg-black h-auto  w-[100%]'>
-                                <div className=' custom-scroll  h-full bg-[#14151a] overflow-y-scroll text-[15px]'>
+                                <div className=' min-w-[250px] custom-scroll  h-full bg-[#14151a] overflow-y-scroll text-[15px]'>
                                     {
                                         epTitle.map((x, index) => (
                                             <div onClick={() => vidChanger(index)} className={`${index == epx ? "text-[#ffdd95] bg-[#717175]" : "text-white"} hover:text-[#ffdd95] flex  pr-[20px] gap-[10px] p-[12px] cursor-pointer ${index % 2 == 0 ? "bg-[#242428]/60" : "bg-[#242428]"}`}>
