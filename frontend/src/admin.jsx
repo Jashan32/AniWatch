@@ -1,6 +1,30 @@
+import { useEffect } from 'react'
 import Navbar from './navbar.jsx'
 
 function Admin() {
+
+    useEffect(() => {
+        const cookieString = document.cookie;
+        if (!cookieString) {
+            window.location.href = "/notfound"
+        }
+        const innerCookie = cookieString.split('=')[1].replace(/\\/g, '');
+        const verify = async () => {
+            const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/admin/verify`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "jwtToken": innerCookie,
+                },
+            });
+            const dRes = await res.json()
+            const ndata = dRes.message;
+            if (ndata != "verified") {
+                window.location.href = "/notfound"
+            }
+        }
+        verify()
+    }, [])
 
     async function uploadNewAnime() {
         const title = document.getElementById("nip1").value
@@ -94,7 +118,7 @@ function Admin() {
         const dataGot = await fetch(`${import.meta.env.VITE_SERVER_URL}/admin/set-tag`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json", 
+                "Content-Type": "application/json",
             },
 
             body: JSON.stringify({

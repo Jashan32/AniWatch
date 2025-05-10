@@ -1,7 +1,15 @@
 import { Router } from "express";
 import { animeModel, episodeModel, categoryModel } from "../../db.js";
 const adminRouter = Router();
+import admin from "../../middleware/admin.js";
+adminRouter.use(admin);
 
+adminRouter.get("/verify", async function (req, res) {
+    res.json({
+        message: "verified"
+    })
+})
+    
 adminRouter.post("/new-anime", async function (req, res) {
     const { title, description, imageUrl, bannerURL, avgTime, type } = req.body;
     const avgTimeInt = parseInt(avgTime)

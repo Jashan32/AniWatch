@@ -2,25 +2,29 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
-    username:String,
-    email:String,
-    title:String,
-    post:String,
-    profileImg:String,
-    category:String,
+    username: String,
+    email: String,
+    title: String,
+    post: String,
+    profileImg: String,
+    category: String,
     createdAt: { type: Date, default: Date.now }
 })
 
 const pImgSchema = new Schema({
-    imgs:Array
+    imgs: Array
+})
+
+const adminSchema = new Schema({
+    email: String
 })
 
 const userSchema = new Schema({
-    name : String,
+    name: String,
     email: String,
     password: String,
-    bookmarked:Array,
-    profileImg:String
+    bookmarked: Array,
+    profileImg: String
 
 });
 
@@ -29,18 +33,18 @@ const animeSchema = new Schema({
     description: String,
     imageUrl: String,
     bannerURL: String,
-    totalep: Number, 
-    type:String,
-    avgTime: Number, 
+    totalep: Number,
+    type: String,
+    avgTime: Number,
 });
 
 const episodeSchema = new mongoose.Schema({
 
     animeId: { type: mongoose.Schema.Types.ObjectId, ref: "Anime", required: true },
-    title: {type: Array},
+    title: { type: Array },
     vURL_english: Array,
     vUrl_japanese: Array,
-    subtitles:Array,
+    subtitles: Array,
 
 });
 
@@ -58,6 +62,7 @@ const categoryModel = mongoose.model("categories", categorySchema);
 const userModel = mongoose.model("users", userSchema)
 const pImgModel = mongoose.model("profileimgs", pImgSchema)
 const postModel = mongoose.model("post", postSchema)
+const adminModel = mongoose.model("admin", adminSchema)
 
 export {
 
@@ -66,5 +71,6 @@ export {
     categoryModel,
     userModel,
     pImgModel,
-    postModel
+    postModel,
+    adminModel
 }
