@@ -16,7 +16,7 @@ function Slider() {
         const imageUrls = data.sliderArray.map((x) => x.bannerURL);
 
         // Preload images
-        const loadImages = imageUrls.map((src) => {
+        const loadImages = imageUrls.slice(0, 2).map((src) => {
           return new Promise((resolve, reject) => {
             const img = new Image();
             img.src = src;
@@ -24,6 +24,9 @@ function Slider() {
             img.onerror = reject;
           });
         });
+        
+        await Promise.all(loadImages);
+        
 
         // Wait until all images are loaded
         await Promise.all(loadImages);
@@ -34,6 +37,11 @@ function Slider() {
         setTitles(data.sliderArray.map((x) => x.title));
         setid(data.sliderArray.map((x) => x._id));
         // setimg(data.sliderArray.map((x) => x.imageUrl));
+        
+        imageUrls.slice(2).forEach((src) => {
+          const img = new Image();
+          img.src = src;
+        });
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -56,7 +64,7 @@ function Slider() {
         setIndex(indexV);
         setAnimate(false);
       }, 150); // Match animation duration
-    }, 10000);
+    }, 6000);
 
     return () => clearInterval(interval);
   }, [index, titles]); // Dependency array empty to only run once
