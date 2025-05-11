@@ -2,7 +2,7 @@ import { Router } from "express";
 import { userModel } from "../../db.js";
 const userRouter = Router();
 import jwt from "jsonwebtoken";
-const jwtSecret = "jwtSecret"
+const jwtSecret = process.env.JWT_SECRET
 
 userRouter.get("/data", async (req, res) => {
     const jwtToken = req.headers.jwttoken
