@@ -1,4 +1,4 @@
-# 🌸 AniWatch
+# AniWatch
 
 AniWatch is a **modern anime streaming platform** built using the **MERN stack**.  
 It streams **`.m3u8` video packets** securely from **Cloudflare R2 buckets**, supports **dual audio**, **subtitles**, and features a fully dynamic admin-managed content system.  
